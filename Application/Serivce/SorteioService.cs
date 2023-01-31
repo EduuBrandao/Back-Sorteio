@@ -4,7 +4,6 @@ using Infra.InfraRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -19,7 +18,7 @@ namespace Application.Serivce
             _CadastroCliente = cadastrocliente;
         }
 
-        public async Task<List<Pessoas>> GetPeople()
+        public async Task<List<Pessoas>> GetPessoas()
         {
             var Pessoas = await _CadastroCliente.Get();
 
@@ -31,8 +30,6 @@ namespace Application.Serivce
 
         public List<Pessoas> GetSorteio(List<Pessoas> pessoas)
         {
-            Random random = new Random();
-            List<Pessoas> pessoasSorteadas = new List<Pessoas>();
             List<string> idosos = new List<string>();
             List<string> deficientes = new List<string>();
             List<string> geral = new List<string>();
@@ -48,13 +45,19 @@ namespace Application.Serivce
                     deficientes.Add(item.CPF);
             }
 
-            string[] idosoArray = idosos.ToArray();
-            string[] geralArray = geral.ToArray();
-            string[] deficientesArray = deficientes.ToArray();
+            var idosoVencedor = GerarIdosoVencedor(idosos.ToArray());
+            var geralVencedor = GerarGeralVencedor(geral.ToArray());
+            var derficienteVencedor = GerarDeficienteVencedor(deficientes.ToArray());
 
-            var idosoVencedor = GerarIdosoVencedor(idosoArray);
-            var geralVencedor = GerarGeralVencedor(geralArray);
-            var derficienteVencedor = GerarDeficienteVencedor(deficientesArray);
+            
+
+
+            return PrencherLista(idosoVencedor, geralVencedor, derficienteVencedor, pessoas);
+        }
+
+        public static List<Pessoas> PrencherLista(string idosoVencedor, List<string> geralVencedor, string derficienteVencedor, List<Pessoas> pessoas)
+        {
+            List<Pessoas> pessoasSorteadas = new List<Pessoas>();
 
             pessoasSorteadas.Add(pessoas.Where(x => x.CPF == idosoVencedor).FirstOrDefault());
             pessoasSorteadas.Add(pessoas.Where(x => x.CPF == derficienteVencedor).FirstOrDefault());
@@ -67,7 +70,7 @@ namespace Application.Serivce
             return pessoasSorteadas;
         }
 
-        private string GerarDeficienteVencedor(string[] deficientesArray)
+        public static string GerarDeficienteVencedor(string[] deficientesArray)
         {
             string vencedor = "";
             Random random = new Random();
@@ -85,7 +88,7 @@ namespace Application.Serivce
             return vencedor;
         }
 
-        private List<string> GerarGeralVencedor(string[] geralArray)
+        public static List<string> GerarGeralVencedor(string[] geralArray)
         {
             List<string> vencedor = new List<string>();
             Random random = new Random();
@@ -106,7 +109,7 @@ namespace Application.Serivce
             return vencedor;
         }
 
-        private string GerarIdosoVencedor(string[] idosoArray)
+        public static string GerarIdosoVencedor(string[] idosoArray)
         {
             string vencedor = "";
             Random random = new Random();
@@ -126,7 +129,7 @@ namespace Application.Serivce
             return vencedor;
         }
 
-        private List<Pessoas> ValidaRegras(List<Pessoas> listaPessoas)
+        public static List<Pessoas> ValidaRegras(List<Pessoas> listaPessoas)
         {
             List<Pessoas> novaListaPessoas = new List<Pessoas>();
 

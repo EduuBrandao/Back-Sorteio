@@ -1,9 +1,7 @@
 ﻿using Application.Interface;
 using Domain.Entidades;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CadasUsuario.Controllers
@@ -23,15 +21,15 @@ namespace CadasUsuario.Controllers
 
         public async Task<ActionResult> Get ()
         {
-            List<Pessoas> Usuarios = await _peopleRepository.GetPeople();
+            List<Pessoas> Pessoas = await _peopleRepository.GetPessoas();
 
 
 
 
-            if (Usuarios is null)
+            if (Pessoas is null)
                 return NotFound();
 
-            return Ok(Usuarios);
+            return Ok(Pessoas);
         }
 
     }

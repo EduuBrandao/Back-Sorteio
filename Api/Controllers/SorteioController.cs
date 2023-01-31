@@ -20,7 +20,7 @@ namespace Sorteio_de_Habilitação.Controllers
 
         public async Task<ActionResult> Get()
         {
-            List<Pessoas> Usuarios = await _peopleRepository.GetPeople();
+            List<Pessoas> Usuarios = await _peopleRepository.GetPessoas();
 
             List<Pessoas> Sorteados =  _peopleRepository.GetSorteio(Usuarios);
 

@@ -9,7 +9,7 @@ namespace Application.Interface
 {
     public interface ISorteio
     {
-        Task<List<Pessoas>> GetPeople();
+        Task<List<Pessoas>> GetPessoas();
 
        List<Pessoas> GetSorteio(List<Pessoas> pessoas);
 
