@@ -39,7 +39,7 @@ namespace Datas
                     entity.HasNoKey();
                 });
 
-                entity.ToTable("Plan");
+                entity.ToTable("ListaSorteio");
 
 
                 entity.Property(e => e.Nome)

@@ -44,7 +44,7 @@ namespace Application.Serivce
                     idosos.Add(item.CPF);
                 if (item.Cota.ToUpper() == "GERAL")
                     geral.Add(item.CPF);
-                if (item.Cota.ToUpper() == "DEIFICENTE FÍSICO")
+                if (item.Cota.ToUpper() == "DEFICIENTE FÍSICO")
                     deficientes.Add(item.CPF);
             }
 
@@ -142,7 +142,7 @@ namespace Application.Serivce
                     if (pessoa.Cota.ToUpper() == "IDOSO" && idade > 60)
                         novaListaPessoas.Add(pessoa);
 
-                    if (pessoa.Cota.ToUpper() == "DEIFICENTE FÍSICO" && !string.IsNullOrEmpty(pessoa.CID))
+                    if (pessoa.Cota.ToUpper() == "DEFICIENTE FÍSICO" && !string.IsNullOrEmpty(pessoa.CID))
                         novaListaPessoas.Add(pessoa);
 
                     if (pessoa.Cota.ToUpper() == "GERAL")

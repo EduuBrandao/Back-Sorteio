@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorteio de Habilitação", "CadasUsuario\Sorteio de Habilitação.csproj", "{BA0A1756-9DED-4D4F-9E43-4EABB1BA161B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorteio de Habilitação", "Api\Sorteio de Habilitação.csproj", "{BA0A1756-9DED-4D4F-9E43-4EABB1BA161B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{9C49F050-DA5C-476E-B07E-3F9A4B325338}"
 EndProject
