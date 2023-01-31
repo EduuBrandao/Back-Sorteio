@@ -49,9 +49,6 @@ namespace Application.Serivce
             var geralVencedor = GerarGeralVencedor(geral.ToArray());
             var derficienteVencedor = GerarDeficienteVencedor(deficientes.ToArray());
 
-            
-
-
             return PrencherLista(idosoVencedor, geralVencedor, derficienteVencedor, pessoas);
         }
 
